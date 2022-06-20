@@ -1,0 +1,64 @@
+From 5c3966db1ef013a0aa9abfcf9f16ac6a1e0fee5f Mon Sep 17 00:00:00 2001
+From: Beefox <bee@beefox.xyz>
+Date: Tue, 21 Jun 2022 02:05:02 +1000
+Subject: [PATCH] Add red border to attachments without descriptions
+
+---
+ src/components/attachment/attachment.scss | 8 ++++++++
+ src/components/attachment/attachment.vue  | 6 ++++++
+ 2 files changed, 14 insertions(+)
+
+diff --git a/src/components/attachment/attachment.scss b/src/components/attachment/attachment.scss
+index b2dea98d..55534a74 100644
+--- a/src/components/attachment/attachment.scss
++++ b/src/components/attachment/attachment.scss
+@@ -241,6 +241,7 @@
+       max-width: 100%;
+       overflow: hidden;
+       text-overflow: ellipsis;
++      
+     }
+ 
+     svg {
+@@ -248,6 +249,13 @@
+     }
+   }
+ 
++  .no-alt-text{
++    display: inline-flex;
++    border: #ff0000aa 3px solid;
++    border-radius: 1.5px;
++    box-sizing: content-box;
++  }
++
+   &.-loading {
+     cursor: progress;
+   }
+diff --git a/src/components/attachment/attachment.vue b/src/components/attachment/attachment.vue
+index 2a89886d..d56d8546 100644
+--- a/src/components/attachment/attachment.vue
++++ b/src/components/attachment/attachment.vue
+@@ -55,7 +55,12 @@
+     <div
+       v-show="!isEmpty"
+       class="attachment-wrapper"
++      :class="{ 'no-alt-text': attachment.description.length === 0 }"
+     >
++      <!-- <div
++        v-if="attachment.description.length === 0 && false"
++        class="no-alt-text"
++      > -->
+       <a
+         v-if="hidden"
+         class="image-container"
+@@ -259,6 +264,7 @@
+       <p v-else>
+         {{ localDescription }}
+       </p>
++      <!-- </div> -->
+     </div>
+   </div>
+ </template>
+-- 
+2.35.1
+

@@ -22,7 +22,7 @@
         >
       </div>
       <button
-        v-if="options.length > 2"
+        v-if="options.length > 1"
         class="delete-option button-unstyled -hover-highlight"
         @click="deleteOption(index)"
       >

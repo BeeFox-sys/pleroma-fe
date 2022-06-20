@@ -87,7 +87,7 @@ export default {
       return false
     },
     deleteOption (index, event) {
-      if (this.options.length > 2) {
+      if (this.options.length > 1) {
         this.options.splice(index, 1)
         this.updatePollToParent()
       }
@@ -122,7 +122,7 @@ export default {
       )
 
       const options = uniq(this.options.filter(option => option !== ''))
-      if (options.length < 2) {
+      if (options.length < 1) {
         this.$emit('update-poll', { error: this.$t('polls.not_enough_options') })
         return
       }

@@ -55,7 +55,12 @@
     <div
       v-show="!isEmpty"
       class="attachment-wrapper"
+      :class="{ 'no-alt-text': attachment.description.length === 0 }"
     >
+      <!-- <div
+        v-if="attachment.description.length === 0 && false"
+        class="no-alt-text"
+      > -->
       <a
         v-if="hidden"
         class="image-container"
@@ -259,6 +264,7 @@
       <p v-else>
         {{ localDescription }}
       </p>
+      <!-- </div> -->
     </div>
   </div>
 </template>

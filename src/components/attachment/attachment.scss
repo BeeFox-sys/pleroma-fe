@@ -241,11 +241,19 @@
       max-width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
+      
     }
 
     svg {
       color: inherit;
     }
+  }
+
+  .no-alt-text{
+    display: inline-flex;
+    border: #ff0000aa 3px solid;
+    border-radius: 1.5px;
+    box-sizing: content-box;
   }
 
   &.-loading {

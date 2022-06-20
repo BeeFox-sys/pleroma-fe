@@ -55,7 +55,7 @@
     <div
       v-show="!isEmpty"
       class="attachment-wrapper"
-      :class="{ 'no-alt-text': attachment.description.length === 0 }"
+      :class="{ 'no-alt-text': attachment.description === null || attachment.description.length === 0 }"
     >
       <!-- <div
         v-if="attachment.description.length === 0 && false"
